@@ -26,7 +26,7 @@ const Room = () => {
 
     // присоединяемся к серверу
     socketRef.current = io.connect(
-      "rtc-socket-express-j3e7v5uu5-pavel-chermyanin.vercel.app:8000"
+      "https://rtc-socket-express-j3e7v5uu5-pavel-chermyanin.vercel.app:8000"
     );
     // говорим серверу что присоединились
     socketRef.current.emit("join room", roomID);
@@ -56,6 +56,7 @@ const Room = () => {
   // Таким образом, функция callUser устанавливает соединение между двумя пользователями, которые могут начать передачу видео и аудио данных друг другу через этот соединение.
   function callUser(userID) {
     console.log("callUser");
+    console.log(userStream.current);
     peerRef.current = createPeer(userID);
 
     userStream.current
