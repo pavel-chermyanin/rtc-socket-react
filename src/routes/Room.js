@@ -25,7 +25,9 @@ const Room = () => {
       });
 
     // присоединяемся к серверу
-    socketRef.current = io.connect("http://localhost:8000");
+    socketRef.current = io.connect(
+      "rtc-socket-express-j3e7v5uu5-pavel-chermyanin.vercel.app:8000"
+    );
     // говорим серверу что присоединились
     socketRef.current.emit("join room", roomID);
 
